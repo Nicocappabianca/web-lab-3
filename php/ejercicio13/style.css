@@ -1,0 +1,143 @@
+*{box-sizing: border-box;margin: 0;}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    background: rgb(34,172,195);
+    background: linear-gradient(90deg, rgba(34,172,195,1) 0%, rgba(45,253,142,1) 100%);
+    font-family: monospace; 
+    position: relative;
+}
+
+header{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    width: 100%;
+    background-color: #4DF842;
+    margin-bottom: 20px;
+}
+
+thead tr th{
+    height: 45px;
+}
+
+thead th{
+    border: 1px solid #000000;
+}
+
+tbody tr{
+    background-color: #9AD3ED;
+    text-align: center;
+    height: 35px;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #D28CA0;
+}
+
+tbody {
+    display:block;
+    height:300px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+.buttons{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.buttons button{
+    height: 30px;
+    margin: 0 10px;
+}
+
+
+input{
+    margin: 5px 0 10px 20px;
+    display: block;
+    width: 130px;
+}
+
+label{
+    margin-left: 20px;
+}
+
+th span:hover{
+    cursor: pointer;
+}
+
+/* Modal styles */  
+.form-container{
+    width: 43%;
+    position: absolute;
+    background-color: #EB9251;
+    padding: 20px;
+    border-radius: 10px;
+    padding-bottom: 50px;
+    top: 170px;
+    left: 400px;
+    display: none;
+}
+
+.modal-head input{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    font-weight: bold;
+    outline: none;
+    margin: 0 0 0 auto;
+    display: block;
+    font-size: 20px;
+}
+
+.disabled{
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.form-group{
+    width: 50%; 
+    float: left;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form-group input, select{
+    display: block;
+    width: 50%;
+    margin: 10px auto 0 auto;
+}
+
+.form-group label{
+    font-size: 12px;
+    margin: 0;
+}
+
+#btn-create, 
+#btn-update{
+    margin-top: 40px;
+    margin-left: 40px;
+    width: 160px;
+    height: 30px;
+}
+
+.clearfix{clear: both;}
+
+td img{
+    width: 20px;
+}
+
+td img:hover{
+    width: 23px;
+    cursor: pointer;
+}

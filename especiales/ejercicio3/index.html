@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 3 | Tabla y Form</title>
+    <link rel="stylesheet" href="../ejercicio2/style.css">
+    <link rel="stylesheet" href="../ejercicio1/style.css">
+    <style>
+        body{position: relative;}
+    
+        .form-container{
+            width: 43%;
+            position: absolute;
+            background-color: #EB9251;
+            padding: 20px;
+            border-radius: 10px;
+            padding-bottom: 50px;
+            top: 170px;
+            left: 400px;
+            display: none;
+        }
+    
+        .modal-head input{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            font-weight: bold;
+            outline: none;
+            margin-left: auto;
+            display: block;
+            font-size: 20px;
+        }
+    
+        .disabled{
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    
+        header{
+            padding-top: 20px;
+        }
+        .buttons{
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section id="table-section">
+        <header>
+            <h1>Listado de productos</h1>
+        </header>
+        <div class="buttons">
+            <button id="btn-load">Cargar tabla</button>
+            <button id="btn-empty">Vaciar tabla</button>
+            <button id="btn-open">Nuevo Producto</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Tipo</th>
+                    <th>Unidad de medida</th>
+                    <th>Descripción</th>
+                    <th>Fecha de alta</th>
+                    <th>Stock disponible</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </section>
+    <div id="form-container" class="form-container">
+        <form id="product-form" action="../ejercicio1/response.html" method="GET">
+            <div class="modal-head">
+                <input type="button" id="btn-close" value="&times">
+            </div>
+            <div class="form-group">
+                <label for="code">Código de Art.</label>
+                <input type="text" name="code" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" name="description" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha</label>
+                <input type="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="product-types">Tipo de producto</label>
+                <select name="product-type" id="product-types"></select>
+            </div>
+            <button type="submit">Enviar</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="../ejercicio1/jquery.js"></script>
+<script type="text/javascript" src="../ejercicio1/product-types.js"></script>
+<script type="text/javascript" src="../ejercicio2/products.js"></script>
+
+<!-- Load table scripts -->
+<script>
+    $(document).ready(function(){   
+        $('#btn-load').click(function(){
+            loadData(); 
+        }); 
+
+        $('#btn-empty').click(function(){
+            $('#table-body').empty();  
+        }); 
+    });
+
+    function loadData(){
+        var prodsObject = JSON.parse(products); 
+        var newProducts = ''; 
+
+        prodsObject.products.forEach(element => {
+            newProducts += '<tr>' +
+                '<td>' + element.code + '</td>' +
+                '<td>' + element.type + '</td>' +
+                '<td>' + element.measure + '</td>' +
+                '<td>' + element.description + '</td>' +
+                '<td>' + element.date + '</td>' +
+                '<td>' + element.stock + '</td>' +
+            '</tr>'; 
+        });
+        
+        $('#table-body').append(newProducts);
+    }
+</script>
+
+<!-- Load form select scripts -->
+<script>
+    $(document).ready(function(){
+        var prodTypes = JSON.parse(productTypes);
+        var options = ''; 
+
+        prodTypes.types.forEach(element => {
+            options += '<option>'+ element.product +'</option>'; 
+        });
+
+        $('#product-types').append(options); 
+    }); 
+</script>
+
+<!-- Modal scripts -->
+<script>
+    $(document).ready(function(){
+        $('#btn-open').click(function(){
+            $('#form-container').show(); 
+            $('#table-section').addClass('disabled'); 
+        });
+        
+        $('#btn-close').click(function(){
+            $('#form-container').hide(); 
+            $('#table-section').removeClass('disabled'); 
+            $('#product-form').trigger('reset'); 
+        })
+    }); 
+</script>

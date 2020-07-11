@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 9 | Convertir a mayúscula</title>
+    <style>
+        html{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="name">Nombre</label>
+            <input id="name" type="text" name="name" autofocus>
+        </div>
+        <div class="input-group">
+            <label for="surname">Apellido</label>
+            <input id="surname" type="text" name="surname">
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .container{
+        width: 25%;
+        margin: 50px auto;
+        background-color: #77AAFE;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    input{
+        display: block;
+        width: 100%;
+    }
+    .input-group:last-child{
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<script>
+    document.getElementById('name').onchange = function(){
+        this.value = this.value.toUpperCase(); 
+    }
+    document.getElementById('surname').onchange = function(){
+        this.value = this.value.toUpperCase(); 
+    }
+</script>

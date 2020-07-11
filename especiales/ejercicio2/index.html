@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 2 | Tabla Variable</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Listado de productos</h1>
+    </header>
+    <div class="buttons">
+        <button id="btn-load">Cargar tabla</button>
+        <button id="btn-empty">Vaciar tabla</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Unidad de medida</th>
+                <th>Descripción</th>
+                <th>Fecha de alta</th>
+                <th>Stock disponible</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+</body>
+</html>
+
+<script type="text/javascript" src="../ejercicio1/jquery.js"></script>
+<script type="text/javascript" src="./products.js"></script>
+
+<script>
+    $(document).ready(function(){   
+        $('#btn-load').click(function(){
+            loadData(); 
+        })
+
+        $('#btn-empty').click(function(){
+            $('#table-body').empty();  
+        })
+    });
+
+    function loadData(){
+        var prodsObject = JSON.parse(products); 
+        var newProducts = ''; 
+
+        prodsObject.products.forEach(element => {
+            newProducts += '<tr>' +
+                '<td>' + element.code + '</td>' +
+                '<td>' + element.type + '</td>' +
+                '<td>' + element.measure + '</td>' +
+                '<td>' + element.description + '</td>' +
+                '<td>' + element.date + '</td>' +
+                '<td>' + element.stock + '</td>' +
+            '</tr>'; 
+        });
+        
+        $('#table-body').append(newProducts);
+    }
+</script>
+
+

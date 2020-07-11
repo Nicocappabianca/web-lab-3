@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 3 | Variables simples</title>
+    <style>
+        html{
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+var d = prompt('ingrese un valor'); 
+
+var a=1, b='1', c=2, z;
+
+document.write(
+    '<h1>Carga de variables globales</h1>', 
+    '<h2>Variable <span style="color:#4EA8E3">z</span> inicializada desde programa: ' + z + '</h2>', 
+    '<h2><span style="color:#4EA8E3">z</span> es de tipo: ' + typeof z + '</h2>', 
+    '<h2>Variable <span style="color:#ED6734">a</span> inicializada desde programa: ' + a + '</h2>', 
+    '<h2><span style="color:#ED6734">a</span> es de tipo: ' + typeof a + '</h2>', 
+    '<h2>Variable <span style="color:#1CFE06">b</span> inicializada desde programa: ' + b + '</h2>', 
+    '<h2><span style="color:#1CFE06">b</span> es de tipo: ' + typeof b + '</h2>',
+    '<h2>Variable <span style="color:#BD5597">c</span> inicializada desde programa: ' + c + '</h2>', 
+    '<h2><span style="color:#BD5597">c</span> es de tipo: ' + typeof c + '</h2>',
+    '<h2><span style="color:#ED6734">a</span>+<span style="color:#1CFE06">b</span>= ' + (a+b) + '</h2>', 
+    '<h2><span style="color:#ED6734">a</span>+<span style="color:#1CFE06">b</span> es de tipo: ' + typeof(a+b) + '</h2>',
+    '<h2><span style="color:#ED6734">a</span>+<span style="color:#BD5597">c</span>= ' + (a+c) + '</h2>', 
+    '<h2><span style="color:#ED6734">a</span>+<span style="color:#BD5597">c</span> es de tipo: ' + typeof(a+c) + '</h2>',
+    '<h2>Variable <span style="color:#659433">d</span> inicializada desde teclado: ' + d + '</h2>', 
+    '<h2><span style="color:#659433">d</span> es de tipo: ' + typeof d + '</h2>', 
+); 
+</script>

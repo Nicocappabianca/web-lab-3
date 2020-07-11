@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 2 | Comando en evento</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <button id="btn-alerta">Click aquí para ejecutar un alert</button>
+    <button id="btn-escribir">Click aquí para ejecutar un document write</button>
+    <br>
+    <br>
+    <a href="../">← Volver atras</a>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <p style="font-size: 14px">Copyright © 2020, <a href="https://github.com/Nicocappabianca" target="_blank">Nicolás Cappabianca</a></p>
+    </footer>
+</body>
+</html>
+
+<script>
+    document.getElementById('btn-alerta').onclick = (function(){
+        alert('comando ejecutado al hacer click en el botón.'); 
+    })
+    
+    document.getElementById('btn-escribir').onclick = (function(){
+        document.write('<h1>Hola! Esta escritura pisa lo que estaba escrito en el documento HTML</h1>');  
+    })
+</script>

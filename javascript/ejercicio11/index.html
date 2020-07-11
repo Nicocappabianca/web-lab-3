@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 11 | Confirmación de form</title>
+    <style>
+        html{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmación de envío y de reset</h1>
+        <form action="./response.html" method="GET">
+            <div class="input-group">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="input-group">
+                <label for="surname">Apellido</label>
+                <input type="text" name="surname" id="surname">
+            </div>
+            <div class="buttons">
+                <input type="submit" onclick="return confirmSubmit();" value="Enviar">
+                <input type="reset" onclick="return confirmReset();" value="Vaciar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    *{box-sizing: border-box; margin: 0;}
+    .container{
+        width: 30%;
+        background-color: #EA9662;
+        border-radius: 20px;
+        margin: 20px auto;
+    }
+
+    .container h1{
+        text-align: center;
+        padding-bottom: 30px;
+        padding-top: 20px;
+        font-size: 18px;
+    }
+
+    .input-group{
+        padding-left: 20px;
+    }
+
+    .input-group input{
+        display: block;
+        margin: 10px 0;
+        width: 90%;
+    }
+
+    .buttons{
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .buttons input{
+        width: 20%;
+        height: 30px;
+    }
+</style>
+
+<script>
+    function confirmReset(){
+        return confirm('Desea vaciar el formulario?'); 
+    }
+
+    function confirmSubmit(){
+        return confirm('Desea enviar el formulario?'); 
+    }
+</script>

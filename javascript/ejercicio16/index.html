@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 16 | Creación de objetos</title>
+</head>
+<body>
+    <div class="buttons">
+        <button id="btn-create">Crear</button>
+        <button id="btn-clean">Limpiar</button>
+        <button id="btn-info">Info</button>
+    </div>
+    <div id="container" class="container"></div>
+</body>
+</html>
+
+<style>
+    html{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .buttons{
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .buttons button{
+        margin: 0 10px;
+        border-radius: 10px;
+        height: 30px;
+        width: 100px;
+        outline: none;
+    }
+
+    .container{
+        margin: 20px auto;
+        width: 30%;
+        background-color: #ECD689;
+        height: 400px;
+        overflow: auto;
+    }
+
+    .new-style{
+        width: fit-content;
+        background-color: #D47733;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px auto;
+    }
+</style>
+
+<script>
+    var container = document.getElementById('container'); 
+
+    document.getElementById('btn-create').onclick = function(){
+        var newDiv = document.createElement('div'); 
+        newDiv.innerHTML = '<h4>Elemento #' + parseInt(container.childNodes.length + 1) + '</h4>'; 
+        newDiv.className = 'new-style'; 
+        container.appendChild(newDiv); 
+    }
+    
+    document.getElementById('btn-clean').onclick = function(){
+        while(container.childNodes.length){
+            container.removeChild(container.childNodes[0]); 
+        }
+    }
+
+    document.getElementById('btn-info').onclick = function(){
+        alert('el contenedor tiene ' + container.childNodes.length + ' elementos en su interior'); 
+        
+        if(container.childNodes.length){
+            for(var i = 0; i<container.childNodes.length; i++){
+                alert('Elemento #' + (i+1) + ': ' + container.childNodes[i].innerHTML); 
+            }
+        }
+    }
+</script>

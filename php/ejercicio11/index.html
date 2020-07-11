@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 11 | Lista ordenada</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Listado de productos</h1>
+    </header>
+    <div class="buttons">
+        <button id="btn-load">Cargar tabla</button>
+        <button id="btn-empty">Vaciar tabla</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th onclick="loadData('id');">Código</th>
+                <th onclick="loadData('type');">Tipo</th>
+                <th onclick="loadData('measure');">Unidad de medida</th>
+                <th onclick="loadData('description');">Descripción</th>
+                <th onclick="loadData('date');">Fecha de alta</th>
+                <th onclick="loadData('stock');">Stock disponible</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+    <label>Orden por</label>
+    <input type="text" id="order_by" readonly value="" disabled>
+    <label for="qty">Cantidad</label>
+    <input type="text" name="qty" id="qty" readonly value="" disabled>
+</body>
+</html>
+
+<script type="text/javascript" src="./jquery.js"></script>
+
+<script>
+    $(document).ready(function(){   
+        $('#btn-load').click(function(){
+            loadData(); 
+        })
+
+        $('#btn-empty').click(function(){
+            $('#table-body').empty();  
+            $('#qty').val('');
+            $('#order_by').val('');
+        })
+    });
+
+    function loadData(orden = 'stock'){
+        $('#table-body').empty(); 
+        $('#table-body').append('<h3 style="color: #0773BD; text-align: center; padding-top: 40px;">Cargando datos...</h3>');
+        $.ajax({
+            type: 'POST', 
+            url: './products.php', 
+            data: {order: orden},
+            success: function(res, status){
+                $('#table-body').empty(); 
+                $('#qty').empty('');
+                $('#order_by').val(''); 
+                var prodsObject = JSON.parse(res); 
+                var newProducts = '';
+
+                prodsObject.products.forEach(element => {
+                    newProducts += '<tr>' +
+                        '<td>' + element.code + '</td>' +
+                        '<td>' + element.type + '</td>' +
+                        '<td>' + element.measure + '</td>' +
+                        '<td>' + element.description + '</td>' +
+                        '<td>' + element.date + '</td>' +
+                        '<td>' + element.stock + '</td>' +
+                    '</tr>'; 
+                });
+
+                $('#table-body').append(newProducts);
+                $('#qty').val(prodsObject.qty); 
+                $('#order_by').val(orden); 
+            }, 
+            error: function(res, status) {
+                $('#table-body').empty();
+                $('#order_by').empty(); 
+                $('#table-body').append('<h2 style="color: #DF2E25; text-align: center; padding-top: 40px;">(Error 404) No fue posible cargar los datos</h2>');
+            },
+        }); 
+    }
+</script>

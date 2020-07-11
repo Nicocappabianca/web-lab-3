@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 6 | Operaciones sobre input</title>
+    <style>
+        html{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Ingrese un valor y luego pulse un botón para ejecutar</h4>
+        <div class="box">
+            <input id="user-input" type="number">
+            <button id="btn-show">Mostrar valor</button>
+            <button id="btn-add">Sumar 1</button>
+            <button id="btn-pow">Elevar al cuadrado</button>
+            <button id="btn-mult">Multiplicar x2</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .container{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .box{
+        display: block;
+        width: 100%;
+    }
+    button, input{
+        padding: 5px;
+        margin-left: 5px;
+    }
+</style>
+
+<script>
+    var input = document.getElementById('user-input'); 
+    
+    document.getElementById('btn-show').onclick = function(){
+        if(input.value){
+            alert('valor: '+input.value); 
+        } else{
+            alert('no se ingreso ningún valor'); 
+        }
+    }
+
+    document.getElementById('btn-add').onclick = function(){
+        input.value = parseInt(input.value) + 1; 
+    }
+
+    document.getElementById('btn-pow').onclick = function(){
+        input.value = parseInt(input.value) * parseInt(input.value); 
+    }
+
+    document.getElementById('btn-mult').onclick = function(){
+        input.value = parseInt(input.value) * 2; 
+    }
+
+</script>

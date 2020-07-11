@@ -1,0 +1,87 @@
+*{box-sizing: border-box;margin: 0;}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+header, footer{ 
+    background: rgb(34,193,195);
+    background: linear-gradient(220deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    height: 80%;
+    width: 100%;
+    overflow: auto;
+}
+
+input{
+    margin-top: 10px;
+}
+
+label{
+    display: block;
+}
+
+select{
+    width: 70%;
+}
+
+.radio-input{
+    float: left;
+    clear: none;
+    margin: 2px 4px;
+}
+  
+.radio-label{
+    float: left;
+    clear: none;
+    display: block;
+}
+
+.form-box{
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 10px 0 30px 5px;
+    background-color: #E98466;
+    float: left;
+    height: 220px;
+    width: 50%;
+}
+
+@media (min-width: 576px) and (max-width:768px){
+    .form-box{
+        width: 33.3%;
+    }
+}
+
+@media (min-width:768px) and (max-width:992px){
+    .form-box{
+        width: 25%;
+    }
+}
+
+@media (min-width:992px){
+    .form-box{
+        width: 20%;
+    }
+}
+
+.control-bar{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    background-color: #3DA0E1;
+}
+
+.control-bar input{
+    height: 50%;
+    margin-left: 20px;
+}

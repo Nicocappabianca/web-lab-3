@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 10 | Variables objeto dato</title>
+    <style>
+        html{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="add-box">
+            <h3>Agregar una nueva persona</h3>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="surname">Apellido</label>
+                <input type="text" name="surname" id="surname">
+            </div>
+            <div class="form-group">
+                <label for="birth">Fecha de nacimiento</label>
+                <input type="text" name="birth" id="birth" placeholder="DD / MM / AAAA">
+            </div>
+            <button id="btn-add">Cargar</button>
+        </div>
+        <div class="list-box">
+            <div id="people-qty"></div>
+            <div class="controls">
+                <button id="btn-show">Ver listado</button>
+                <button id="btn-hide">Ocultar listado</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Nacimiento</th>
+                </tr>
+                <tbody id="people-list"></tbody>
+            </table>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="source.js"></script>

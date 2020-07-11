@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 14 | Location</title>
+</head>
+<body>
+    <div class="container">
+        <button id="btn-youtube">YouTube</button>
+        <button id="btn-twitter">Twitter</button>
+        <button id="btn-linkedin">Linkedin</button>
+    </div>
+</body>
+</html>
+
+<style>
+    .container{
+        width: 25%;
+        background-color: #5AFE4A;
+        margin: 50px auto;
+        border-radius: 10px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+</style>
+
+<script>
+    document.getElementById('btn-youtube').onclick = function(){
+        window.open('https://www.youtube.com', '_blank'); 
+    }
+
+    document.getElementById('btn-twitter').onclick = function(){
+        window.open('https://www.twitter.com', '_blank'); 
+    }
+
+    document.getElementById('btn-linkedin').onclick = function(){
+        window.open('https://www.linkedin.com', '_blank'); 
+    }
+</script>

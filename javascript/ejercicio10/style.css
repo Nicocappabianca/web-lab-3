@@ -1,0 +1,65 @@
+*{margin: 0; box-sizing: border-box;}
+
+.container{
+    width: 80%;
+    margin: 40px auto;
+    background-color: #EA9482;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+}
+
+.container h3{
+    padding-bottom: 30px;
+}
+
+.container button{
+    height: 40px;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-group input{
+    display: block;
+    margin: 10px auto;
+}
+
+.form-group input[name="name"], 
+.form-group input[name="surname"]{
+    width: 60%;
+}
+
+.form-group{
+    margin: 20px 0;
+}
+
+.add-box{
+    width: 50%;
+    float: left;
+}
+
+.list-box{
+    width: 50%;
+    float: left;
+}
+
+.controls button{
+    width: 30%;
+}
+
+.list-box table{
+    margin: 20px auto;
+    font-size: 15px;
+    width: 80%;
+}
+
+table th{
+    width: 33.3%;
+}
+
+#people-list{
+    visibility: hidden;
+}

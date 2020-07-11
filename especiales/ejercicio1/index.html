@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 1 | Form Variable</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario para alta de artículos</h1>
+        <form action="response.html" method="GET">
+            <div class="form-group">
+                <label for="code">Código de Art.</label>
+                <input type="text" name="code" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" name="description" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha</label>
+                <input type="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="product-types">Tipo de producto</label>
+                <select name="product-type" id="product-types"></select>
+            </div>
+            <button type="submit">Enviar</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="product-types.js"></script>
+
+<script>
+    $(document).ready(function(){
+        var prodTypes = JSON.parse(productTypes);
+        var options = ''; 
+
+        prodTypes.types.forEach(element => {
+            options += '<option>'+ element.product +'</option>'; 
+        });
+
+        $('#product-types').append(options); 
+    }); 
+</script>

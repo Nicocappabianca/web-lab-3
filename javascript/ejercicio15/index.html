@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 15 | Conmutación de clase</title>
+</head>
+<body>
+    <h2>Ejemplo de cambio de estilos dinamicamente</h2>
+    <div id="list" class="list-container">
+        <ul>
+            <li>Texto 1</li>
+            <li>Texto 2</li>
+            <li>Texto 3</li>
+        </ul>
+    </div>
+    <div class="buttons">
+        <button id="btn-1">Estilo 1</button>
+        <button id="btn-2">Estilo 2</button>
+        <button id="btn-3">Estilo 3</button>
+        <button id="btn-inicial">Estilo inicial</button>
+    </div>
+</body>
+</html>
+
+<style>
+    html{
+        font-family: monospace;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    .buttons{
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .buttons button{
+        border-radius: 10px;
+        height: 30px;
+        outline: none;
+    }    
+
+    .list-container{
+        width: 10%;
+        background-color: #238BF5;
+        margin: 5px auto;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .list-container-2{
+        width: 10%;
+        background-color: #F78E63;
+        margin: 5px auto;
+        font-weight: bold;
+        padding: 20px;
+    }
+
+    .list-container-3{
+        width: 10%;
+        background-color: #4A0A62;
+        margin: 5px auto;
+        border-radius: 30px;
+        padding: 30px;
+        color: #ffffff;
+        padding: 20px;
+    }
+
+    .list-container-4{
+        width: 15%;
+        background: rgb(34,116,195);
+        background: linear-gradient(180deg, rgba(34,116,195,1) 0%, rgba(148,215,136,1) 100%);
+        margin: 5px auto;
+        font-weight: bold;
+        padding: 20px;
+    }
+</style>
+
+<script>
+    var list = document.getElementById('list'); 
+
+    document.getElementById('btn-1').onclick = function(){
+        list.className = 'list-container-2'
+    }
+
+    document.getElementById('btn-2').onclick = function(){
+        list.className = 'list-container-3'
+    }
+
+    document.getElementById('btn-3').onclick = function(){
+        list.className = 'list-container-4'
+    }
+
+    document.getElementById('btn-inicial').onclick = function(){
+        list.className = 'list-container'
+    }
+</script>

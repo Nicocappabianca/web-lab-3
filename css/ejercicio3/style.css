@@ -1,0 +1,90 @@
+h1.title{
+    text-align: center;
+    padding-top: 30px;
+    text-transform: uppercase;
+    color: #5360BB;
+}
+
+.nav-title{
+    padding-left: 30px;
+    color: #5360BB;
+}
+
+.sub-title{
+   color: #538CBB; 
+}
+
+ul.navigation{
+    list-style: none;
+}
+
+.navigation li{
+    padding-bottom: 5px;
+}
+
+.navigation li a{
+    text-decoration: none;
+}
+
+.site-info{
+    text-align: center;
+}
+
+.site-info h3{
+    text-transform: uppercase;
+}
+
+.site-info p{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+#imagenes{
+    text-align: center;
+}
+
+
+#imagenes h4{
+    color: #29279C;
+    text-transform: uppercase;
+}
+
+#imagenes img{
+    margin-left: 50px;
+}
+
+#imagenes a{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#videos{
+    text-align: center;
+    padding-top: 10px;
+}
+
+#videos .yt-videos{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+#videos video{
+    margin-left: 30px;
+}
+
+#videos iframe{
+    margin-left: 30px;
+}
+
+#videos a{
+    text-decoration: none;
+}
+
+.extra-info{
+    color: #365A54;
+    font-size: 14px;
+}
+
+footer{
+    text-align: center;
+}

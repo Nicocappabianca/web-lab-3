@@ -1,0 +1,82 @@
+* {
+    margin:0;
+}
+
+html, body{
+    width: 100%;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #68D4D2;
+    padding: 10px 0 10px 0;
+}
+
+.box{
+    margin: 30px; 
+    border: 1px solid #000000;
+    width: 25%;
+    height: 120px;
+    border-radius: 10px;
+    float: left;
+}
+
+.one{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg,#81DE40, #43D58A, #5B91F0);
+    box-shadow: 8px 8px 2px rgba(0,0,0,0.3); 
+}
+
+.two{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle,#81DE40, #43D58A, #5B91F0);
+    box-shadow: 8px -8px 2px rgba(0,0,0,0.3);
+}
+
+.three{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse, #83D119, #66A7D5);
+    box-shadow: 8px 12px 2px rgba(0,0,0,0.3);
+}
+
+.three img{
+    width: 20%;
+    margin-left: 20px;
+}
+
+.four{
+    background: linear-gradient(120deg,#ffffff, #43D58A, #5B91F0);
+    box-shadow: 8px 8px 2px rgba(0,0,0,0.3); 
+}
+
+.four p{
+    margin: 0;
+    font-size: 20px;
+}
+
+.five{
+    background: linear-gradient(220deg,#ffffff, #43D58A, #5B91F0);
+    box-shadow: -8px 8px 2px rgba(0,0,0,0.3); 
+}
+
+.five p{
+    margin: 0;
+    font-size: 20px;
+}
+
+footer, a{
+    margin-left: 10px;
+}
+
+footer a{
+    margin-left: 0;
+}

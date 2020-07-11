@@ -1,0 +1,45 @@
+html{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+    width: 40%;
+    margin: 50px auto;
+    background-color: #EB9251;
+    padding: 20px;
+    border-radius: 10px;
+    padding-bottom: 50px;
+}
+
+.container h1{
+    text-align: center;
+    font-size: 25px;
+}
+
+.form-group{
+    width: 50%; 
+    float: left;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form-group input, select{
+    display: block;
+    width: 50%;
+    margin: 10px auto 0 auto;
+}
+
+.form-group label{
+    font-size: 12px;
+}
+
+button[type="submit"]{
+    margin-top: 40px;
+    margin-left: 40px;
+    width: 160px;
+    height: 30px;
+}
+
+.clearfix{clear: both;}

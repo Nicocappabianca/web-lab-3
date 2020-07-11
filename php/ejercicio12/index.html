@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 12 | Lista ordenada con filtros</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Listado de productos</h1>
+    </header>
+    <div class="buttons">
+        <button id="btn-load">Cargar tabla</button>
+        <button id="btn-empty">Vaciar tabla</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <span onclick="loadData('id');">Código</span>
+                    <input id="input-code" style="margin: 5px auto;" type="text">
+                </th>
+                <th>
+                    <span onclick="loadData('type');">Tipo</span>
+                    <input id="input-type" style="margin: 5px auto;" type="text">
+                </th>
+                <th>
+                    <span onclick="loadData('measure');">Unidad de medida</span>
+                    <input id="input-measure" style="margin: 5px auto;" type="text">
+                </th>
+                <th>
+                    <span onclick="loadData('description');">Descripción</span>
+                    <input id="input-description" style="margin: 5px auto;" type="text">
+                </th>
+                <th>
+                    <span onclick="loadData('date');">Fecha de alta</span>
+                    <input id="input-date" style="margin: 5px auto;" type="text">
+                </th>
+                <th>
+                    <span onclick="loadData('stock');">Stock disponible</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+    <label>Orden por</label>
+    <input type="text" id="order_by" readonly value="" disabled>
+    <label for="qty">Cantidad</label>
+    <input type="text" name="qty" id="qty" readonly value="" disabled>
+</body>
+</html>
+
+<script type="text/javascript" src="./jquery.js"></script>
+
+<script>
+    $(document).ready(function(){   
+        $('#btn-load').click(function(){
+            loadData(); 
+        })
+
+        $('#btn-empty').click(function(){
+            $('#table-body').empty();  
+            $('#qty').val('');
+            $('#order_by').val('');
+            $('#input-code').val('');
+            $('#input-type').val('');
+            $('#input-measure').val('');
+            $('#input-description').val('');
+            $('#input-date').val('');
+        })
+    });
+
+    function loadData(orden = 'stock'){
+        $('#table-body').empty(); 
+        $('#table-body').append('<h3 style="color: #0773BD; text-align: center; padding-top: 40px;">Cargando datos...</h3>');
+        $.ajax({
+            type: 'POST', 
+            url: './products.php', 
+            data: {
+                order: orden,
+                productCode: $('#input-code').val(),
+                productType: $('#input-type').val(),
+                productMeasure: $('#input-measure').val(),
+                productDescription: $('#input-description').val(),
+                productDate: $('#input-date').val(), 
+            },
+            success: function(res, status){
+                $('#table-body').empty(); 
+                $('#qty').empty('');
+                $('#order_by').val(''); 
+                var prodsObject = JSON.parse(res);
+                
+                if(prodsObject.qty < 1){
+                    $('#table-body').html('<h2 style="color: #253ECD; text-align: center; padding-top: 40px;">Su búsqueda no arrojo resultados.</h2>'); 
+                } 
+                
+                var newProducts = '';
+
+                prodsObject.products.forEach(element => {
+                    newProducts += '<tr>' +
+                        '<td>' + element.code + '</td>' +
+                        '<td>' + element.type + '</td>' +
+                        '<td>' + element.measure + '</td>' +
+                        '<td>' + element.description + '</td>' +
+                        '<td>' + element.date + '</td>' +
+                        '<td>' + element.stock + '</td>' +
+                    '</tr>'; 
+                });
+
+                $('#table-body').append(newProducts);
+                $('#qty').val(prodsObject.qty); 
+                $('#order_by').val(orden); 
+            }, 
+            error: function(res, status) {
+                $('#table-body').empty();
+                $('#order_by').empty(); 
+                $('#table-body').append('<h2 style="color: #DF2E25; text-align: center; padding-top: 40px;">(Error 404) No fue posible cargar los datos.</h2>');
+            },
+        }); 
+    }
+</script>

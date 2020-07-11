@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 5 | Alcance</title>
+    <style>
+        html{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="btn-wrong">Inicialización incorrecta</button>
+        <button id="btn-right">Inicialización correcta</button>
+        <button id="btn-show">Mostrar variable global</button>
+    </div>
+</body>
+</html>
+
+<style>
+    .container{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    .container button{
+        padding: 10px;
+    }
+</style>
+
+<script>
+    var global; 
+
+    document.getElementById('btn-wrong').onclick = function(){
+        var global = prompt('Ingrese un valor para la variable global');
+        if(global != null){
+            alert('La variable global tiene el siguiente valor: ' + global);  
+            alert('La variable global es de tipo: ' + typeof global); 
+        }
+    }
+
+    document.getElementById('btn-right').onclick = function(){
+        global = prompt('Ingrese un valor para la variable global');
+        if(global != null){
+            alert('La variable global tiene el siguiente valor: ' + global);  
+            alert('La variable global es de tipo: ' + typeof global); 
+        }
+    }
+
+    document.getElementById('btn-show').onclick = function(){
+        if(global != null){
+            alert('La variable global tiene el siguiente valor: ' + global);  
+            alert('La variable global es de tipo: ' + typeof global); 
+        } else{
+            alert('La variable global aun no fue asignada correctamente'); 
+        }
+    }
+    
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 4 | Arreglos</title>
+    <style>
+        html{
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    var animales = ['perro', 'gato']; 
+    animales.push(prompt('El array de animales ya tiene dos asignados(perro y gato) Por favor, ingrese el tercero'));
+
+    document.write(
+        '<h1>Variables Multidimensionales</h1>', 
+        '<h2>Array de índice numérico</h2>', 
+        '<h2>El array animales es de tipo: <span style="color:#4B0082">'+typeof animales+'</span></h2>',
+        '</br>', 
+        '<h3>Primer elemento cargado desde el programa: <span style="color:#4B0082">'+animales[0]+'</span></h3>',
+        '<h3>Segundo elemento cargado desde el programa: <span style="color:#4B0082">'+animales[1]+'</span></h3>',
+        '<h3>Tercer elemento cargado desde teclado: <span style="color:#4B0082">'+animales[2]+'</span></h3>'
+    ); 
+</script>
+

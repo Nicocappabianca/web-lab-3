@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Ejercicio 7 | Funciones compartidas</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        html{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Ejercicio 7 | Funciones compartidas</h3>
+        <div class="box">
+            <input id="display" type="text" readonly>
+            <div class="numbers-box">
+                <div class="row">
+                    <button onclick="insert(1)">1</button>
+                    <button onclick="insert(2)">2</button>
+                    <button onclick="insert(3)">3</button>
+                </div>
+                <div class="row">
+                    <button onclick="insert(4)">4</button>
+                    <button onclick="insert(5)">5</button>
+                    <button onclick="insert(6)">6</button>
+                </div>
+                <div class="row">
+                    <button onclick="insert(7)">7</button>
+                    <button onclick="insert(8)">8</button>
+                    <button onclick="insert(9)">9</button>
+                </div>
+            </div><!-- numbers-box -->
+            <div class="buttons-box">
+                <button id="add">Sumar</button>
+                <button id="show-acum">Mostrar Acumulador</button>
+                <button id="empty-acum">Borrar Acumulador</button>
+                <button id="empty-display">Borrar Display</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var acum = 0; 
+    var display = document.getElementById('display');
+
+    function insert(number){
+        display.value += number; 
+    }
+
+    document.getElementById('add').onclick = function(){
+        if(display.value){
+            acum += parseInt(display.value); 
+            display.value = '';
+        } 
+    }
+
+    document.getElementById('show-acum').onclick = function(){
+        alert('Acumulador = '+acum); 
+    }
+
+    document.getElementById('empty-acum').onclick = function(){
+        acum = 0;
+    }
+
+    document.getElementById('empty-display').onclick = function(){
+        display.value = ''; 
+    }
+</script>

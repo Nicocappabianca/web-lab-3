@@ -1,0 +1,117 @@
+*{box-sizing: border-box;margin: 0;}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    background: rgb(34,172,195);
+    background: linear-gradient(90deg, rgba(34,172,195,1) 0%, rgba(45,253,142,1) 100%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    width: 100%;
+    background-color: #4DF842;
+    margin-bottom: 20px;
+}
+
+thead tr th{
+    height: 40px;
+}
+
+thead th{
+    border: 1px solid #000000;
+}
+
+tbody tr{
+    background-color: #96C9F4;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #FF8383;
+    color: #ffffff;
+}
+
+tbody {
+    display:block;
+    height:300px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+[campo-dato="id"], #id{
+    width: 5%;
+}
+
+[campo-dato="nickname"], #nickname{
+    width: 10%;
+}
+
+[campo-dato="twitter"], #twitter{
+    width: 15%;
+}
+
+[campo-dato="email"], #email, 
+[campo-dato="website"], #website, 
+[campo-dato="skype"], #skype{
+    width: 23.33%;
+}
+
+td{
+    text-align: center;
+}
+
+@media (max-width:450px){
+    [campo-dato="skype"], #skype,
+    [campo-dato="twitter"], #twitter, 
+    [campo-dato="website"], #website,
+    [campo-dato="email"], #email
+    {
+        display: none;
+    }
+    h1{
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 450px) and (max-width:650px){
+    [campo-dato="skype"], #skype,
+    [campo-dato="twitter"], #twitter, 
+    [campo-dato="website"], #website
+    {
+        display: none;
+    }
+    h1{
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 650px) and (max-width:850px){
+    [campo-dato="skype"], #skype,
+    [campo-dato="twitter"], #twitter 
+    {
+        display: none;
+    }
+    h1{
+        font-size: 20px;
+    }
+}
+
+@media (min-width:850px) and (max-width:992px){
+    [campo-dato="skype"], #skype{
+        display: none;
+    }
+    h1{
+        font-size: 28px;
+    }
+}
